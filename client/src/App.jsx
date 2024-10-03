@@ -17,7 +17,7 @@ import ShopAccount from "./pages/shop/ShopAccount";
 import UnAuth from "./pages/unauth/UnAuth";
 
 function App() {
-  const isAuthenticated = true;
+  const isAuthenticated = false;
   const user = null;
 
   return (
