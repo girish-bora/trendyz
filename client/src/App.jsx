@@ -15,10 +15,22 @@ import ShopProducts from "./pages/shop/ShopProducts";
 import ShopCheckout from "./pages/shop/ShopCheckout";
 import ShopAccount from "./pages/shop/ShopAccount";
 import UnAuth from "./pages/unauth/UnAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { checkAuth } from "./store/auth-slice/authSlice";
+import { useEffect } from "react";
+import { Skeleton } from "./components/ui/skeleton";
 
 function App() {
-  const isAuthenticated = false;
-  const user = null;
+  const { isAuthenticated, user, isLoading } = useSelector(
+    (state) => state.auth
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
+  if (isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
@@ -37,7 +49,7 @@ function App() {
         <Route
           path="/admin"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={null}>
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
               <AdminLayout />
             </CheckAuth>
           }
@@ -50,7 +62,7 @@ function App() {
         <Route
           path="/shop"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={null}>
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
               <ShopLayout />
             </CheckAuth>
           }
