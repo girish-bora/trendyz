@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const authRouter = require("./routes/auth/auth.route");
+const adminProductsRouter = require("./routes/admin/products.route");
 
 require("./db/connection");
 
@@ -26,6 +27,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
+app.use("/api/admin/products", adminProductsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
