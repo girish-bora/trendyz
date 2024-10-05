@@ -1,5 +1,5 @@
 import ProductImageUpload from "@/components/admin/AdminProductImageUpload";
-import AdminProductTile from "@/components/admin-view/product-tile";
+import AdminProductTile from "@/components/admin/AdminProductTile";
 import Form from "@/components/common/Form";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +15,7 @@ import {
   deleteProduct,
   editProduct,
   fetchAllProducts,
-} from "@/store/admin/products-slice";
+} from "@/store/admin/productsSlice";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -111,13 +111,14 @@ function AdminProducts() {
       </div>
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
         {productList && productList.length > 0
-          ? productList.map((productItem) => (
+          ? productList.map((productItem,index) => (
               <AdminProductTile
                 setFormData={setFormData}
                 setOpenCreateProductsDialog={setOpenCreateProductsDialog}
                 setCurrentEditedId={setCurrentEditedId}
                 product={productItem}
                 handleDelete={handleDelete}
+                key={index}
               />
             ))
           : null}
