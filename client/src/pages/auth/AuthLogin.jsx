@@ -1,7 +1,7 @@
-import CommonForm from "@/components/common/form";
+import Form from "@/components/common/Form";
 import { useToast } from "@/hooks/use-toast";
 import { loginFormControls } from "@/config/config";
-import { loginUser } from "@/store/auth-slice/authSlice";
+import { loginUser } from "@/store/auth/authSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -49,7 +49,7 @@ function AuthLogin() {
           </Link>
         </p>
       </div>
-      <CommonForm
+      <Form
         formControls={loginFormControls}
         buttonText={"Sign In"}
         formData={formData}

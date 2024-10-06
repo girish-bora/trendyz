@@ -1,7 +1,7 @@
-import Form from "@/components/common/form";
+import Form from "@/components/common/Form";
 import { registerFormControls } from "@/config/config";
 import { useToast } from "@/hooks/use-toast";
-import { registerUser } from "@/store/auth-slice/authSlice";
+import { registerUser } from "@/store/auth/authSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -34,7 +34,6 @@ const AuthRegister = () => {
       }
     });
   }
-
 
   return (
     <div className="mx-auto w-full max-w-md space-y-6">
