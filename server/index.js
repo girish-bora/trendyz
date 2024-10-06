@@ -1,6 +1,9 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
+require("dotenv").config();
+
 const authRouter = require("./routes/auth/auth.route");
 const adminProductsRouter = require("./routes/admin/products.route");
 const adminOrderRouter = require("./routes/admin/order.route");
@@ -19,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_BASE_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: [
       "Content-Type",
