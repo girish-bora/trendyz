@@ -8,9 +8,9 @@ import { addToCart, fetchCartItems } from "@/store/shop/cartSlice";
 import { useToast } from "../../hooks/use-toast";
 import { setProductDetails } from "@/store/shop/productsSlice";
 import { Label } from "../ui/label";
-import StarRatingComponent from "../common/star-rating";
+import StarRatingComponent from "../common/StarRating";
 import { useEffect, useState } from "react";
-import { addReview, getReviews } from "@/store/shop/review-slice";
+import { addReview, getReviews } from "@/store/shop/reviewSlice";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");
